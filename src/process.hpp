@@ -16,6 +16,9 @@ struct RunResult {
 std::string shell_quote(std::string_view s);
 RunResult run(const std::vector<std::string>& argv, const std::filesystem::path& scratch);
 
+// Absolute path of the running executable (empty if unknown).
+std::filesystem::path executable_path();
+
 std::string read_file(const std::filesystem::path& p);
 bool write_file(const std::filesystem::path& p, std::string_view data);
 

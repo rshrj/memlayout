@@ -73,6 +73,16 @@ int main(int argc, char** argv) {
     if (opt.help) { std::cout << usage(); return 0; }
     if (opt.version) { std::cout << "memlayout " << kVersion << '\n'; return 0; }
 
+    if (opt.self_update) {
+        const fs::path exe = executable_path();
+        if (exe.empty()) die("cannot locate the running executable");
+        std::cout << "memlayout " << kVersion << ": checking for the latest release...\n";
+        const std::string cmd =
+            "curl -fsSL https://github.com/rshrj/memlayout/releases/latest/download/install.sh | MEMLAYOUT_INSTALL_DIR=" +
+            shell_quote(exe.parent_path().string()) + " sh";
+        return std::system(cmd.c_str()) == 0 ? 0 : 1;
+    }
+
     TempDir tmp;
 
     // ---- 1. locate the source --------------------------------------------------

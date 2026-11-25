@@ -28,6 +28,7 @@ struct Options {
     bool title = true;
     bool help = false;
     bool version = false;
+    bool self_update = false;
 };
 
 // Result of argument parsing: `error` is empty on success.
@@ -39,6 +40,9 @@ struct ParseResult {
 
 ParseResult parse_args(std::span<const char* const> args);
 std::string usage();
-inline constexpr const char* kVersion = "0.1.0";
+#ifndef MEMLAYOUT_VERSION
+#define MEMLAYOUT_VERSION "dev"
+#endif
+inline constexpr const char* kVersion = MEMLAYOUT_VERSION;
 
 }  // namespace ml

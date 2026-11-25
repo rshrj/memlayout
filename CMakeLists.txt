@@ -20,9 +20,16 @@ add_library(memlayout_core STATIC
   src/cli.cpp)
 target_include_directories(memlayout_core PUBLIC src)
 target_compile_options(memlayout_core PUBLIC -Wall -Wextra -Wpedantic)
+target_compile_definitions(memlayout_core PUBLIC MEMLAYOUT_VERSION="${PROJECT_VERSION}")
 
 add_executable(memlayout src/main.cpp)
 target_link_libraries(memlayout PRIVATE memlayout_core)
+
+# Release binaries on Linux must not depend on the build machine's libstdc++.
+option(MEMLAYOUT_STATIC "Link libstdc++/libgcc statically (Linux release builds)" OFF)
+if(MEMLAYOUT_STATIC AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  target_link_options(memlayout PRIVATE -static-libstdc++ -static-libgcc)
+endif()
 
 include(CTest)
 if(BUILD_TESTING)

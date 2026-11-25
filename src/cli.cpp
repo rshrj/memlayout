@@ -38,6 +38,7 @@ COMPILER
 
 MISC
       --list             list records that can be drawn and exit
+      --self-update      replace this binary with the latest GitHub release
   -h, --help | -V, --version
 
 EXAMPLES
@@ -85,6 +86,8 @@ Options parse_args_impl(std::span<const char* const> args) {
             o.help = true;
         } else if (a == "-V" || a == "--version") {
             o.version = true;
+        } else if (a == "--self-update") {
+            o.self_update = true;
         } else if (a == "--list") {
             o.list = true;
         } else if (a == "--no-probe") {
@@ -135,7 +138,7 @@ Options parse_args_impl(std::span<const char* const> args) {
             positional.push_back(std::move(a));
         }
     }
-    if (o.help || o.version) return o;
+    if (o.help || o.version || o.self_update) return o;
     if (positional.empty()) fail("missing input file (see --help)");
     o.input = positional.front();
     o.types.assign(positional.begin() + 1, positional.end());

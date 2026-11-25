@@ -19,6 +19,19 @@ $ memlayout examples/basic.cpp Sample
 
 `-f svg` produces the rounded-cell figures (dark/light theme, hover tooltips per field).
 
+## Install
+
+```sh
+curl -fsSL https://github.com/rshrj/memlayout/releases/latest/download/install.sh | sh
+```
+
+Installs the latest release to `~/.local/bin` (override with `MEMLAYOUT_INSTALL_DIR`; pin a version with
+`MEMLAYOUT_VERSION=v0.1.0`). Prebuilt binaries: macOS arm64 and Linux x86_64, checksum-verified.
+`clang++` must be installed at run time (Xcode command line tools on macOS).
+
+**Update:** `memlayout --self-update` (or re-run the command above).
+Other platforms: build from source below.
+
 ## How it works
 
 1. `clang -Xclang -fdump-record-layouts-complete` gives every record's offsets, `sizeof`,
@@ -67,3 +80,10 @@ Issues and PRs welcome. Run `ctest --test-dir build` before submitting; `.clang-
 ## License
 
 MIT, see [LICENSE](LICENSE).
+
+## Releasing (maintainers)
+
+1. Bump `project(memlayout VERSION x.y.z)` in `CMakeLists.txt`, commit, push.
+2. `git tag vX.Y.Z && git push origin vX.Y.Z`: CI builds/tests the Linux binary and creates the release.
+3. `scripts/release-macos.sh vX.Y.Z` on an Apple Silicon Mac attaches the macOS binary
+   (macOS CI runners are expensive, so that asset is built locally).

@@ -3,6 +3,10 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#ifdef __APPLE__
+#include <mach-o/dyld.h>
+#endif
+
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
@@ -46,6 +50,19 @@ RunResult run(const std::vector<std::string>& argv, const std::filesystem::path&
     r.out = read_file(out_path);
     r.err = read_file(err_path);
     return r;
+}
+
+std::filesystem::path executable_path() {
+    std::error_code ec;
+#ifdef __APPLE__
+    uint32_t size = 0;
+    _NSGetExecutablePath(nullptr, &size);
+    std::string buf(size, '\0');
+    if (_NSGetExecutablePath(buf.data(), &size) != 0) return {};
+    return std::filesystem::canonical(buf.c_str(), ec);
+#else
+    return std::filesystem::read_symlink("/proc/self/exe", ec);
+#endif
 }
 
 TempDir::TempDir() {
