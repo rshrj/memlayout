@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1054 696" width="1054" height="696" role="img" aria-label="union Value memory layout: 10 bytes of fields + 6 bytes of padding = 16 bytes">
+<style>text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}</style>
+<rect x="1" y="1" width="1052" height="694" rx="26" fill="#ffffff" stroke="#dddddd" stroke-width="2"/>
+<text x="34.0" y="42.0" font-size="15" fill="#777777"><tspan font-weight="600" fill="#111111">union Value</tspan>  sizeof = 16  ·  alignof = 8</text>
+<text x="62.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">0</text>
+<text x="124.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">1</text>
+<text x="186.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">2</text>
+<text x="248.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">3</text>
+<text x="310.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">4</text>
+<text x="372.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">5</text>
+<text x="434.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">6</text>
+<text x="496.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">7</text>
+<text x="558.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">8</text>
+<text x="620.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">9</text>
+<text x="682.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">10</text>
+<text x="744.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">11</text>
+<text x="806.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">12</text>
+<text x="868.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">13</text>
+<text x="930.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">14</text>
+<text x="992.0" y="90.0" font-size="24" fill="#666666" text-anchor="middle">15</text>
+<g><title>c — char, align 1
+offset 0, 1 byte</title>
+<rect x="34.0" y="98.0" width="56" height="68" rx="9" fill="#dbe7ff" stroke="#2f6fe0" stroke-width="3"/>
+<path d="M34.0 178.0V188.0H90.0V178.0" fill="none" stroke="#2f6fe0" stroke-width="4"/>
+<text x="62.0" y="220.0" font-size="26" fill="#2f6fe0" text-anchor="middle">c</text>
+</g>
+<g><title>6 bytes of padding at offset 10</title>
+<rect x="654.0" y="98.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M668.0 144.0L696.0 114.0M668.0 158.0L704.0 122.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="716.0" y="98.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M730.0 144.0L758.0 114.0M730.0 158.0L766.0 122.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="778.0" y="98.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M792.0 144.0L820.0 114.0M792.0 158.0L828.0 122.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="840.0" y="98.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M854.0 144.0L882.0 114.0M854.0 158.0L890.0 122.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="902.0" y="98.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M916.0 144.0L944.0 114.0M916.0 158.0L952.0 122.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="964.0" y="98.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M978.0 144.0L1006.0 114.0M978.0 158.0L1014.0 122.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<path d="M654.0 178.0V188.0H1020.0V178.0" fill="none" stroke="#a0a0a0" stroke-width="4"/>
+<text x="837.0" y="220.0" font-size="26" fill="#777777" text-anchor="middle">padding</text>
+</g>
+<g><title>i — int, align 4
+offset 0, 4 bytes</title>
+<rect x="34.0" y="232.0" width="56" height="68" rx="9" fill="#d4f1ec" stroke="#1f8a7c" stroke-width="3"/>
+<rect x="96.0" y="232.0" width="56" height="68" rx="9" fill="#d4f1ec" stroke="#1f8a7c" stroke-width="3"/>
+<rect x="158.0" y="232.0" width="56" height="68" rx="9" fill="#d4f1ec" stroke="#1f8a7c" stroke-width="3"/>
+<rect x="220.0" y="232.0" width="56" height="68" rx="9" fill="#d4f1ec" stroke="#1f8a7c" stroke-width="3"/>
+<path d="M34.0 312.0V322.0H276.0V312.0" fill="none" stroke="#1f8a7c" stroke-width="4"/>
+<text x="155.0" y="354.0" font-size="26" fill="#1f8a7c" text-anchor="middle">i</text>
+</g>
+<g><title>6 bytes of padding at offset 10</title>
+<rect x="654.0" y="232.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M668.0 278.0L696.0 248.0M668.0 292.0L704.0 256.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="716.0" y="232.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M730.0 278.0L758.0 248.0M730.0 292.0L766.0 256.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="778.0" y="232.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M792.0 278.0L820.0 248.0M792.0 292.0L828.0 256.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="840.0" y="232.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M854.0 278.0L882.0 248.0M854.0 292.0L890.0 256.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="902.0" y="232.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M916.0 278.0L944.0 248.0M916.0 292.0L952.0 256.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="964.0" y="232.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M978.0 278.0L1006.0 248.0M978.0 292.0L1014.0 256.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<path d="M654.0 312.0V322.0H1020.0V312.0" fill="none" stroke="#a0a0a0" stroke-width="4"/>
+<text x="837.0" y="354.0" font-size="26" fill="#777777" text-anchor="middle">padding</text>
+</g>
+<g><title>d — double, align 8
+offset 0, 8 bytes</title>
+<rect x="34.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<rect x="96.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<rect x="158.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<rect x="220.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<rect x="282.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<rect x="344.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<rect x="406.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<rect x="468.0" y="366.0" width="56" height="68" rx="9" fill="#ffe8cf" stroke="#c9741a" stroke-width="3"/>
+<path d="M34.0 446.0V456.0H524.0V446.0" fill="none" stroke="#c9741a" stroke-width="4"/>
+<text x="279.0" y="488.0" font-size="26" fill="#c9741a" text-anchor="middle">d</text>
+</g>
+<g><title>6 bytes of padding at offset 10</title>
+<rect x="654.0" y="366.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M668.0 412.0L696.0 382.0M668.0 426.0L704.0 390.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="716.0" y="366.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M730.0 412.0L758.0 382.0M730.0 426.0L766.0 390.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="778.0" y="366.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M792.0 412.0L820.0 382.0M792.0 426.0L828.0 390.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="840.0" y="366.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M854.0 412.0L882.0 382.0M854.0 426.0L890.0 390.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="902.0" y="366.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M916.0 412.0L944.0 382.0M916.0 426.0L952.0 390.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="964.0" y="366.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M978.0 412.0L1006.0 382.0M978.0 426.0L1014.0 390.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<path d="M654.0 446.0V456.0H1020.0V446.0" fill="none" stroke="#a0a0a0" stroke-width="4"/>
+<text x="837.0" y="488.0" font-size="26" fill="#777777" text-anchor="middle">padding</text>
+</g>
+<g><title>bytes — char[10], align 1
+offset 0, 10 bytes</title>
+<rect x="34.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="96.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="158.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="220.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="282.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="344.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="406.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="468.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="530.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<rect x="592.0" y="500.0" width="56" height="68" rx="9" fill="#e9e0ff" stroke="#7a52d6" stroke-width="3"/>
+<path d="M34.0 580.0V590.0H648.0V580.0" fill="none" stroke="#7a52d6" stroke-width="4"/>
+<text x="341.0" y="622.0" font-size="26" fill="#7a52d6" text-anchor="middle">bytes</text>
+</g>
+<g><title>6 bytes of padding at offset 10</title>
+<rect x="654.0" y="500.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M668.0 546.0L696.0 516.0M668.0 560.0L704.0 524.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="716.0" y="500.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M730.0 546.0L758.0 516.0M730.0 560.0L766.0 524.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="778.0" y="500.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M792.0 546.0L820.0 516.0M792.0 560.0L828.0 524.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="840.0" y="500.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M854.0 546.0L882.0 516.0M854.0 560.0L890.0 524.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="902.0" y="500.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M916.0 546.0L944.0 516.0M916.0 560.0L952.0 524.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<rect x="964.0" y="500.0" width="56" height="68" rx="9" fill="#f1f1f1" stroke="#a0a0a0" stroke-width="3"/>
+<path d="M978.0 546.0L1006.0 516.0M978.0 560.0L1014.0 524.0" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round"/>
+<path d="M654.0 580.0V590.0H1020.0V580.0" fill="none" stroke="#a0a0a0" stroke-width="4"/>
+<text x="837.0" y="622.0" font-size="26" fill="#777777" text-anchor="middle">padding</text>
+</g>
+<text x="527.0" y="660.0" font-size="22" fill="#111111" text-anchor="middle">10 bytes of fields + 6 bytes of padding = 16 bytes</text>
+</svg>
