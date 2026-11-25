@@ -62,8 +62,8 @@ const char* ext(Format f) {
 
 int main(int argc, char** argv) {
     auto parsed = parse_args(std::span<const char* const>(argv + 1, static_cast<std::size_t>(argc - 1)));
-    if (!parsed) die(parsed.error());
-    Options opt = std::move(*parsed);
+    if (!parsed) die(parsed.error);
+    Options opt = std::move(parsed.options);
     if (opt.help) { std::cout << usage(); return 0; }
     if (opt.version) { std::cout << "memlayout " << kVersion << '\n'; return 0; }
 

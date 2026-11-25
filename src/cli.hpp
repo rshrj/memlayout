@@ -1,5 +1,4 @@
 #pragma once
-#include <expected>
 #include <optional>
 #include <span>
 #include <string>
@@ -31,7 +30,14 @@ struct Options {
     bool version = false;
 };
 
-std::expected<Options, std::string> parse_args(std::span<const char* const> args);
+// Result of argument parsing: `error` is empty on success.
+struct ParseResult {
+    Options options;
+    std::string error;
+    explicit operator bool() const { return error.empty(); }
+};
+
+ParseResult parse_args(std::span<const char* const> args);
 std::string usage();
 inline constexpr const char* kVersion = "0.1.0";
 
