@@ -37,6 +37,8 @@ Private members work (`-fno-access-control`). Template instances are named expli
 ```
 cmake -S . -B build && cmake --build build && ctest --test-dir build
 ```
+Linux CI runs on clang 18 + libstdc++ 14. On such toolchains clang crashes when dumping every layout, so the tool
+automatically falls back to on-demand dumps (types in namespaces then need their qualified name).
 Needs a C++23 compiler (std::format, std::expected) and CMake >= 3.20 to build,
 and `clang++` on PATH (or `--cxx` / `$CXX`) at run time. POSIX only (macOS/Linux).
 

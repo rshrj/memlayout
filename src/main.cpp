@@ -39,8 +39,14 @@ std::vector<std::string> declared_records(const std::string& src) {
     static const std::regex re(R"(\b(?:struct|class|union)\s+(?:alignas\s*\([^)]*\)\s*)?([A-Za-z_]\w*)\s*(?:final\s*)?(?::[^;{]*)?\{)");
     std::vector<std::string> names;
     std::set<std::string> seen;
-    for (std::sregex_iterator it(src.begin(), src.end(), re), end; it != end; ++it)
+    static const std::regex templ(R"(template\s*<[^;{}]*>\s*$)");
+    for (std::sregex_iterator it(src.begin(), src.end(), re), end; it != end; ++it) {
+        // Templates have no layout until instantiated: name those explicitly.
+        const auto pos = static_cast<std::size_t>(it->position());
+        const std::string before = src.substr(pos > 300 ? pos - 300 : 0, pos > 300 ? 300 : pos);
+        if (std::regex_search(before, templ)) continue;
         if (seen.insert((*it)[1]).second) names.push_back((*it)[1]);
+    }
     return names;
 }
 
@@ -99,10 +105,39 @@ int main(int argc, char** argv) {
     base_args.insert(base_args.end(), opt.compiler_args.begin(), opt.compiler_args.end());
 
     // ---- 3. ask the compiler for the layouts ----------------------------------
-    write_file(tmp.path() / "dump.cpp", wrapper);
-    auto dump_cmd = base_args;
-    dump_cmd.insert(dump_cmd.end(), {"-fsyntax-only", "-Xclang", "-fdump-record-layouts-complete", (tmp.path() / "dump.cpp").string()});
-    const RunResult dump = run(dump_cmd, tmp.path());
+    // Fast path: -fdump-record-layouts-complete dumps every record eagerly. clang 18 crashes on
+    // some libstdc++ templates with it, so on a compiler crash we retry with the plain flag,
+    // which only dumps layouts that are requested, and request ours via sizeof().
+    const auto dump_path = (tmp.path() / "dump.cpp").string();
+    auto run_dump = [&](std::string_view flag, const std::string& source_text_for_dump) {
+        write_file(dump_path, source_text_for_dump);
+        auto cmd = base_args;
+        cmd.insert(cmd.end(), {"-fsyntax-only", "-Xclang", std::string(flag), dump_path});
+        return run(cmd, tmp.path());
+    };
+    RunResult dump = run_dump("-fdump-record-layouts-complete", wrapper);
+    const bool crashed = dump.exit_code >= 128 || dump.err.find("PLEASE submit a bug report") != std::string::npos;
+    if (crashed) {
+        std::cerr << "memlayout: note: the compiler crashed while dumping all layouts; retrying with on-demand dumps\n"
+                  << "           (types inside namespaces must then be named with their qualified name)\n";
+        std::string forced = wrapper;
+        if (!explicit_types)
+            for (std::size_t i = 0; i < wanted.size(); ++i)
+                forced += std::format("[[maybe_unused]] inline constexpr unsigned long __ml_force_{} = sizeof({});\n", i, wanted[i]);
+        dump = run_dump("-fdump-record-layouts", forced);
+        // Forcing a name that does not exist at global scope is not fatal when types were auto-detected.
+        static const std::regex own_error(R"(dump\.cpp:(\d+):\d+: error)");
+        bool real_error = false;
+        std::size_t p = 0;
+        while ((p = dump.err.find("error:", p)) != std::string::npos) {
+            const auto ls = dump.err.rfind('\n', p);
+            const std::string line = dump.err.substr(ls == std::string::npos ? 0 : ls + 1, p - (ls == std::string::npos ? 0 : ls + 1) + 6);
+            std::smatch sm;
+            if (explicit_types || !std::regex_search(line, sm, own_error) || std::stoi(sm[1]) < 4) real_error = true;
+            p += 6;
+        }
+        if (!real_error && dump.exit_code != 0 && !dump.out.empty()) dump.exit_code = 0;
+    }
     if (dump.exit_code != 0) {
         std::cerr << dump.err;
         die(dump.err.find("unknown argument") != std::string::npos || dump.err.find("unsupported option") != std::string::npos

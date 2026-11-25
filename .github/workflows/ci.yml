@@ -4,24 +4,16 @@ on:
     branches: [main]
   pull_request:
 
+# Linux only on purpose: macOS runners are expensive.
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest, ubuntu-24.04]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install clang (Linux)
-        if: runner.os == 'Linux'
+      - name: Install clang
         run: sudo apt-get update && sudo apt-get install -y clang ninja-build
       - name: Configure
         run: cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER=clang++
-        if: runner.os == 'Linux'
-      - name: Configure
-        run: cmake -S . -B build
-        if: runner.os != 'Linux'
       - name: Build
         run: cmake --build build
       - name: Test
